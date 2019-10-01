@@ -5,14 +5,19 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Value;
 
 @RestController
-public class WelcomeController {
+public class EnvController {
 
-    @Value("${welcome.message}")
-    String msg;
+    @Value("${PORT:NOT SET}")
+    String port;
 
+    @Value("${MEMORY_LIMIT:NOT SET}")
+    String memory_limit;
 
-    @GetMapping("/")
+    @Value("${cf.instance.index:NOT SET}")
+    String cf_instance_index;
+
+    @GetMapping("/env")
     public String sayHello() {
-        return msg;
+        return cf_instance_index;
     }
 }
