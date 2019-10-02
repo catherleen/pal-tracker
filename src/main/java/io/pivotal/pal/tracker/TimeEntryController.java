@@ -24,16 +24,22 @@ public class TimeEntryController {
     @PostMapping
     //@ResponseStatus(HttpStatus.CREATED)
      public ResponseEntity<TimeEntry> create(@RequestBody TimeEntry entry){
-        return new ResponseEntity<>(timeEntryRepository.create(entry), HttpStatus.CREATED);
+//        return new ResponseEntity<>(timeEntryRepository.create(entry), HttpStatus.CREATED);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(
+                timeEntryRepository.create(entry)
+        );
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<TimeEntry> read(@PathVariable("id") long timeEntryId) {
         TimeEntry entry = timeEntryRepository.find(timeEntryId);
         if (entry == null) {
-            return new ResponseEntity<>(entry, HttpStatus.NOT_FOUND);
+//            return new ResponseEntity<>(entry, HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         } else {
-            return new ResponseEntity<>(entry, HttpStatus.OK);
+//            return new ResponseEntity<>(entry, HttpStatus.OK);
+            return ResponseEntity.ok(entry);
         }
     }
 
