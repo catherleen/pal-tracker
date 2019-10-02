@@ -18,19 +18,19 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
         return entry;
     }
 
-    public TimeEntry find(long entryId) {
+    public TimeEntry find(Long entryId) {
 
         if (entryId > entries.size()) {
             return null;
         }
-         return entries.get((int)entryId-1);
+         return entries.get((int)(long)entryId-1);
     }
 
     public List<TimeEntry> list() {
         return entries;
     }
 
-    public TimeEntry update(long entryId, TimeEntry entry) {
+    public TimeEntry update(Long entryId, TimeEntry entry) {
         if (entryId > index) {
             return null;
         }
@@ -47,7 +47,7 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
         return entry;
     }
 
-    public void delete(long entryId) {
+    public void delete(Long entryId) {
         if (entryId > index) {
 
             return;
