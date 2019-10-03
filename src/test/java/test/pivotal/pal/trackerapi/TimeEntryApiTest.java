@@ -32,8 +32,8 @@ public class TimeEntryApiTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    private final long projectId = 123L;
-    private final long userId = 456L;
+    private final long projectId = 173L;
+    private final long userId = 448L;
     private TimeEntry timeEntry = new TimeEntry(projectId, userId, LocalDate.parse("2017-01-08"), 8);
 
     @Test

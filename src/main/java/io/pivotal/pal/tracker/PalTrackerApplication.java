@@ -10,12 +10,11 @@ import javax.sql.DataSource;
 @SpringBootApplication
 public class PalTrackerApplication {
 
-    @Autowired
-    DataSource datasource;
-    @Bean
-    public TimeEntryRepository timeEntryRepository(){
 
-        return new JdbcTimeEntryRepository(datasource);
+    @Bean
+    public TimeEntryRepository timeEntryRepository(DataSource dataSource){
+
+        return new JdbcTimeEntryRepository(dataSource);
 
     }
 
